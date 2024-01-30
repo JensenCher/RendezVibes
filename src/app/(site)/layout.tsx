@@ -4,6 +4,8 @@ import "../globals.css";
 import Header from "@/components/global/Header";
 import HeaderMobile from "@/components/global/HeaderMobile";
 import { cn } from "@/lib/utils";
+import Footer from "@/components/global/Footer";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +21,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("relative h-full font-sans antialiased vsc-initialized", inter.className)}>
-        <Header />
-        <HeaderMobile />
-        {children}
+      <body className={cn("relative h-full dark font-sans antialiased vsc-initialized", inter.className)}>
+        {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange> */}
+        <main className="relative flex flex-col min-h-screen bg-background text-muted-foreground">
+          <Header />
+          <HeaderMobile />
+          <div className="flex-grow flex-1">{children}</div>
+          <Footer />
+        </main>
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );

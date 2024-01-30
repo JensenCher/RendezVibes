@@ -49,10 +49,10 @@ const HeaderMobile = () => {
       initial={false}
       animate={isOpen ? "open" : "closed"}
       custom={height}
-      className={`fixed inset-0 z-50 w-full md:hidden text-slate-900 ${isOpen ? "" : "pointer-events-none"}`}
+      className={`fixed inset-0 z-50 w-full md:hidden text-muted-foreground ${isOpen ? "" : "pointer-events-none"}`}
       ref={containerRef}
     >
-      <motion.div className="absolute inset-0 right-0 w-full bg-white" variants={sidebar} />
+      <motion.div className="absolute inset-0 right-0 w-full bg-background" variants={sidebar} />
       <motion.ul variants={variants} className="absolute grid w-full gap-3 px-10 py-16">
         {SIDENAV_ITEMS.map((item, idx) => {
           const isLastItem = idx === SIDENAV_ITEMS.length - 1; // Check if it's the last item
@@ -63,7 +63,11 @@ const HeaderMobile = () => {
                 <MenuItemWithSubMenu item={item} toggleOpen={toggleOpen} />
               ) : (
                 <MenuItem>
-                  <Link href={item.path} onClick={() => toggleOpen()} className={`flex w-full text-2xl ${item.path === pathname ? "font-bold" : ""}`}>
+                  <Link
+                    href={item.path}
+                    onClick={() => toggleOpen()}
+                    className={`flex w-full text-2xl ${item.path === pathname ? "font-bold text-white" : ""} hover:text-white duration-300`}
+                  >
                     {item.title}
                   </Link>
                 </MenuItem>
@@ -82,7 +86,7 @@ const HeaderMobile = () => {
 export default HeaderMobile;
 
 const MenuToggle = ({ toggle }: { toggle: any }) => (
-  <button onClick={toggle} className="pointer-events-auto absolute right-4 top-[14px] z-30 py-3">
+  <button onClick={toggle} className="pointer-events-auto absolute right-4 top-[14px] z-30 py-3 hover:text-white duration-300">
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path
         variants={{
@@ -124,7 +128,7 @@ const MenuItemWithSubMenu: React.FC<MenuItemWithSubMenuProps> = ({ item, toggleO
 
   return (
     <>
-      <MenuItem>
+      <MenuItem className="hover:text-white duration-300 transition-[color]">
         <button className="flex w-full text-2xl" onClick={() => setSubMenuOpen(!subMenuOpen)}>
           <div className="flex flex-row justify-between w-full items-center">
             <span className={`${pathname.includes(item.path) ? "font-bold" : ""}`}>{item.title}</span>
@@ -140,7 +144,7 @@ const MenuItemWithSubMenu: React.FC<MenuItemWithSubMenuProps> = ({ item, toggleO
             {item.subMenuItems?.map((subItem, subIdx) => {
               return (
                 <MenuItem key={subIdx}>
-                  <Link href={subItem.path} onClick={() => toggleOpen()} className={` ${subItem.path === pathname ? "font-bold" : ""}`}>
+                  <Link href={subItem.path} onClick={() => toggleOpen()} className={` ${subItem.path === pathname ? "font-bold text-white" : ""} hover:text-white duration-300`}>
                     {subItem.title}
                   </Link>
                 </MenuItem>

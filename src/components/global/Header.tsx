@@ -23,20 +23,20 @@ const Header = () => {
   const scrolled = useScroll(5);
   const selectedLayout = useSelectedLayoutSegment();
 
-  const [isLoaded, setIsLoaded] = useState(false);
+  // const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
+  // useEffect(() => {
+  //   setIsLoaded(true);
+  // }, []);
 
-  if (!isLoaded) {
-    return <></>;
-  }
+  // if (!isLoaded) {
+  //   return <></>;
+  // }
   return (
     <div
-      className={cn(`sticky inset-x-0 top-0 z-30 w-full transition-all border-b py-3 border-gray-200 text-slate-900`, {
-        "border-b border-gray-200 bg-white/75 backdrop-blur-lg": scrolled,
-        "border-b border-gray-200 bg-white": selectedLayout,
+      className={cn(`sticky inset-x-0 top-0 z-30 w-full transition-all py-2 text-muted-foreground bg-background`, {
+        "bg-background/75 backdrop-blur-lg": scrolled,
+        "bg-background": selectedLayout,
       })}
     >
       <MaxWidthWrapper>
@@ -44,7 +44,7 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <Link href="/" className="flex flex-row space-x-3 items-center justify-center">
               {/* <span className="h-7 w-7 bg-zinc-300 rounded-lg" /> */}
-              <span className="font-bold text-xl flex ">Home</span>
+              <span className="font-bold text-xl flex hover:text-white duration-300">Rv</span>
             </Link>
             <NavigationMenuDemo />
           </div>
@@ -95,12 +95,12 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ];
 
-function NavigationMenuDemo() {
+export function NavigationMenuDemo() {
   return (
     <NavigationMenu className="hidden md:block">
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Genres</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
@@ -129,7 +129,7 @@ function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Artists</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {components.map((component) => (
