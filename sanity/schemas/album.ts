@@ -18,7 +18,7 @@ const album = {
             name: "tagline",
             title: "Tagline",
             type: "string",
-            validation: (rule) => rule.max(60).required(),
+            validation: (rule) => rule.max(200).required(),
         }),
         defineField({
             name: "slug",
@@ -39,6 +39,15 @@ const album = {
             name: "logo",
             title: "Album Logo",
             type: "image",
+            description: "Upload a Album Logo for this album",
+            options: { hotspot: true },
+            fields: [
+                {
+                    name: "alt",
+                    title: "Alt",
+                    type: "string",
+                },
+            ],
         },
         {
             name: "albumUrl",
@@ -65,6 +74,14 @@ const album = {
             type: "array",
             description: "Write a full description about this album",
             of: [{ type: "block" }],
+        },
+        {
+            name: 'type',
+            title: 'Type',
+            type: 'string',
+            description: 'Default value for Album field',
+            initialValue: 'album',
+            readOnly: true,
         },
     ],
 };

@@ -46,6 +46,14 @@ const genre = {
             description: "Write a full description about this genre",
             of: [{ type: "block" }],
         },
+        {
+            name: 'type',
+            title: 'Type',
+            type: 'string',
+            description: 'Default value for Genre field',
+            initialValue: 'genre',
+            readOnly: true,
+        },
     ],
 };
 

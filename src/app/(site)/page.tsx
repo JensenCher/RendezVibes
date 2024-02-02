@@ -1,9 +1,9 @@
 import { getProjects } from "../../../sanity/lib/query";
-import Image from "next/image";
 import { ProjectType } from "../../../types/Project";
-import { PortableText } from "@portabletext/react";
 import Hero from "@/components/Hero";
 import MaxWidthWrapper from "@/components/global/MaxWidthWrapper";
+import ArtistReel from "@/components/artist/ArtistReel";
+import AlbumReel from "@/components/album/AlbumReel";
 
 export default async function Home() {
   const projects: ProjectType[] = await getProjects();
@@ -11,6 +11,8 @@ export default async function Home() {
   return (
     <MaxWidthWrapper>
       <Hero />
+      <ArtistReel />
+      <AlbumReel />
       {/* Project Section */}
       {/* <div className="mb-32 flex flex-col items-start justify-start gap-5 text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:text-left">
         <h1>Project Section</h1>

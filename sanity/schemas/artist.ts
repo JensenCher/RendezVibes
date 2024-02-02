@@ -77,6 +77,14 @@ const artist = {
             description: "The Members in this group",
             of: [{ type: "string" }],
         },
+        {
+            name: 'type',
+            title: 'Type',
+            type: 'string',
+            description: 'Default value for Artist field',
+            initialValue: 'artist',
+            readOnly: true,
+        },
     ],
 };
 

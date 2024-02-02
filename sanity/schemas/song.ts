@@ -59,6 +59,14 @@ const song = {
             description: "Write a full description about this song",
             of: [{ type: "block" }],
         },
+        {
+            name: 'type',
+            title: 'Type',
+            type: 'string',
+            description: 'Default value for Song field',
+            initialValue: 'album',
+            readOnly: true,
+        },
     ],
 };
 

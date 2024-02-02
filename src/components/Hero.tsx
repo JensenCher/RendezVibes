@@ -6,17 +6,19 @@ import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse
 import { TypeAnimation } from "react-type-animation";
 import { fadeIn } from "@/lib/variants";
 import { PiMicrophoneStageFill } from "react-icons/pi";
+import { Button } from "./ui/button";
+import { FaPlay } from "react-icons/fa6";
 
-const songSequence = ["Biri-Biri, Yoasobi", 3000, "Moonlight Sunrise, Twice", 3000, "Dash, NMIXX", 3000];
+const songSequence = ["Biri-Biri - Yoasobi", 3000, "Moonlight Sunrise - Twice", 3000, "Dash - NMIXX", 3000];
 
 const Hero = () => {
   return (
-    <section className="w-full h-[75vh]">
+    <section className="w-full h-[400px] md:h-[70vh]">
       <div className="h-full grid grid-cols-4 gap-5">
         {/* Text */}
         <div className="col-span-4 xl:col-span-2">
           <div className="flex flex-col items-center justify-center h-full">
-            <div className="flex flex-col items-start justify-start space-y-4">
+            <div className="flex flex-col items-start justify-start gap-y-4">
               <MouseParallaxContainer
                 globalFactorX={0.1}
                 globalFactorY={0.2}
@@ -29,7 +31,7 @@ const Hero = () => {
                     initial="hidden"
                     whileInView={"show"}
                     viewport={{ once: false, amount: 0.4 }}
-                    className="text-5xl md:text-7xl font-bold text-slate-900 tracking-tighter"
+                    className="text-5xl md:text-7xl font-bold text-primary/40 tracking-tighter"
                   >
                     RendezVibes
                   </motion.div>
@@ -47,12 +49,20 @@ const Hero = () => {
                 </MouseParallaxChild>
               </MouseParallaxContainer>
               <div>
-                <div className="flex items-center space-x-4">
-                  <span className="text-2xl">
+                <div className="flex items-center space-x-4 text-accent-foreground">
+                  <span className="text-2xl text-primary">
                     <PiMicrophoneStageFill />
                   </span>
                   <TypeAnimation sequence={songSequence} wrapper="div" speed={10} deletionSpeed={10} repeat={Infinity} cursor={false} />
                 </div>
+              </div>
+              <div className="mt-2 flex items-center justify-center xl:justify-start w-full">
+                <Button variant={"default"} size={"lg"} className="group text-lg">
+                  Listen Now{" "}
+                  <span className="ml-2 mt-0.5 text-base group-hover:translate-x-1.5 duration-300">
+                    <FaPlay />
+                  </span>
+                </Button>
               </div>
             </div>
           </div>

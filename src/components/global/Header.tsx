@@ -44,7 +44,7 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <Link href="/" className="flex flex-row space-x-3 items-center justify-center">
               {/* <span className="h-7 w-7 bg-zinc-300 rounded-lg" /> */}
-              <span className="font-bold text-xl flex hover:text-white duration-300">Rv</span>
+              <span className="font-bold text-3xl flex hover:text-white duration-300">Rv</span>
             </Link>
             <NavigationMenuDemo />
           </div>
