@@ -8,8 +8,9 @@ import { fadeIn } from "@/lib/variants";
 import { PiMicrophoneStageFill } from "react-icons/pi";
 import { Button } from "./ui/button";
 import { FaPlay } from "react-icons/fa6";
+import Link from "next/link";
 
-const songSequence = ["Biri-Biri - Yoasobi", 3000, "Moonlight Sunrise - Twice", 3000, "Dash - NMIXX", 3000];
+const songSequence = ["Pretender - Official Hige Dandism", 3000, "Alcohol Free - Twice", 3000, "Kaibutsu - Yoasobi", 3000];
 
 const Hero = () => {
   return (
@@ -58,10 +59,12 @@ const Hero = () => {
               </div>
               <div className="mt-2 flex items-center justify-center xl:justify-start w-full">
                 <Button variant={"default"} size={"lg"} className="group text-lg">
-                  Listen Now{" "}
-                  <span className="ml-2 mt-0.5 text-base group-hover:translate-x-1.5 duration-300">
-                    <FaPlay />
-                  </span>
+                  <Link href={"/albums"} className="flex gap-1 items-center justify-center">
+                    Listen Now{" "}
+                    <span className="ml-2 mt-0.5 text-base group-hover:translate-x-1.5 duration-300">
+                      <FaPlay />
+                    </span>
+                  </Link>
                 </Button>
               </div>
             </div>

@@ -1,11 +1,9 @@
 "use client";
 
-import { SIDENAV_ITEMS } from "@/constants";
 import useScroll from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname, useSelectedLayoutSegment } from "next/navigation";
-import { useEffect, useState } from "react";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import * as React from "react";
 import {
@@ -19,19 +17,9 @@ import {
 } from "@/components/ui/navigation-menu";
 
 const Header = () => {
-  const pathname = usePathname();
   const scrolled = useScroll(5);
   const selectedLayout = useSelectedLayoutSegment();
 
-  // const [isLoaded, setIsLoaded] = useState(false);
-
-  // useEffect(() => {
-  //   setIsLoaded(true);
-  // }, []);
-
-  // if (!isLoaded) {
-  //   return <></>;
-  // }
   return (
     <div
       className={cn(`sticky inset-x-0 top-0 z-30 w-full transition-all py-2 text-muted-foreground bg-background`, {
@@ -43,17 +31,10 @@ const Header = () => {
         <div className="flex h-[47px] items-center justify-between px-4">
           <div className="flex items-center space-x-4">
             <Link href="/" className="flex flex-row space-x-3 items-center justify-center">
-              {/* <span className="h-7 w-7 bg-zinc-300 rounded-lg" /> */}
               <span className="font-bold text-3xl flex hover:text-white duration-300">Rv</span>
             </Link>
             <NavigationMenuDemo />
           </div>
-
-          {/* <div className="hidden md:block">
-          <div className="h-8 w-8 rounded-full bg-zinc-300 flex items-center justify-center text-center">
-            <span className="font-semibold text-sm">HQ</span>
-          </div>
-        </div> */}
         </div>
       </MaxWidthWrapper>
     </div>
@@ -64,34 +45,39 @@ export default Header;
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description: "A modal dialog that interrupts the user with important content and expects a response.",
+    title: "Yoasobi",
+    href: "/artists/eebb6285-f4a1-43fd-b1af-35ee16b6b843",
+    description: "YOASOBI (stylized in all caps) is a Japanese music duo composed of vocaloid music producer Ayase and vocalist Ikura (幾田りら).",
   },
   {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description: "For sighted users to preview content available behind a link.",
+    title: "Official Hige Dandism",
+    href: "/artists/943254e6-9d02-4e43-a7a6-5e25b9be7b63",
+    description:
+      "Official Hige Dandism: Japanese pop-rock sensations crafting infectious melodies and heartfelt lyrics, captivating global audiences with their dynamic and soulful sound.",
   },
   {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description: "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+    title: "More...",
+    href: "/artists",
+    description: "",
+  },
+];
+const albumComponents: { title: string; href: string; description: string }[] = [
+  {
+    title: "The Book",
+    href: "/albums/a966079a-6f95-4961-8030-cd7fd39881f0",
+    description:
+      '"The Book" by Yoasobi is a captivating musical narrative, weaving tales through diverse genres. Released in 2021, this Japanese masterpiece delivers a symphony of emotions, from the upbeat resonance of "Tabun" to the melancholic beauty of "Ano Yume o Nazotte."',
   },
   {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
+    title: "Traveller",
+    href: "/albums/d1240415-98a0-4448-b265-336cc6ae1447",
+    description:
+      '"Traveller" by Official Hige Dandism is a musical odyssey that transcends genres, seamlessly blending pop, rock, and soul. Released in 2019, this Japanese album is a treasure trove of infectious melodies, introspective lyrics, and versatile instrumentation.',
   },
   {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description: "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description: "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+    title: "More...",
+    href: "/albums",
+    description: "",
   },
 ];
 
@@ -107,24 +93,20 @@ export function NavigationMenuDemo() {
                 <NavigationMenuLink asChild>
                   <a
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    href="/"
+                    href="/genres"
                   >
-                    <div className="mb-2 mt-4 text-lg font-medium">shadcn/ui</div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.
-                    </p>
+                    <div className="mb-2 mt-4 text-lg font-medium">Genres</div>
+                    <p className="text-sm leading-tight text-muted-foreground">Explore & Expand your music taste and venture new styles.</p>
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
+              <ListItem href="/genres/J-Pop" title="J Pop">
+                Japan's eclectic music scene, blending diverse genres with a unique cultural flair, creating an enchanting sonic landscape.
               </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
+              <ListItem href="/genres/K-Pop" title="K-Pop">
+                Dynamic South Korean music genre fusing catchy tunes, impressive choreography, and vibrant visuals, defining global pop culture.
               </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
-              </ListItem>
+              <ListItem href="/genres" title="More..."></ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -141,10 +123,22 @@ export function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
+          <NavigationMenuTrigger>Albums</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {albumComponents.map((component) => (
+                <ListItem key={component.title} title={component.title} href={component.href}>
+                  {component.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <Link href="/docs" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Documentation</NavigationMenuLink>
           </Link>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
       </NavigationMenuList>
     </NavigationMenu>
   );

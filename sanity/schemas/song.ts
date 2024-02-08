@@ -9,6 +9,12 @@ const song = {
     icon: BiMusic,
     fields: [
         {
+            name: "order",
+            title: "Order",
+            type: "number",
+            description: "Ordering No. 1 ... No. 999",
+        },
+        {
             name: "name",
             title: "Name",
             type: "string",

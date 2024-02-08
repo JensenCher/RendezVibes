@@ -1,18 +1,20 @@
 import Link from "next/link";
 import { ArtistType } from "../../../types/Artist";
 import SectionItemListing from "./SectionItemListing";
+import { AlbumType } from "../../../types/Album";
 
 interface SectionReelProps {
   title: string;
   subtitle?: string;
   href?: string;
-  items: ArtistType[] | [];
+  itemsHref?: string;
+  items: ArtistType[] | AlbumType[] | [];
 }
 
 const FALLBACK_LIMIT = 4;
 
 const SectionReel = async (props: SectionReelProps) => {
-  const { title, subtitle, href, items } = props;
+  const { title, subtitle, href, itemsHref, items } = props;
   const slicedItems = items.slice(0, FALLBACK_LIMIT);
 
   return (
@@ -32,7 +34,7 @@ const SectionReel = async (props: SectionReelProps) => {
         <div className="mt-6 flex items-center w-full">
           <div className="w-full grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-3 xl:grid-cols-4 md:gap-y-10 lg:gap-x-8">
             {slicedItems.map((item, i) => (
-              <SectionItemListing key={i} item={item} index={i} href={href} />
+              <SectionItemListing key={i} item={item} index={i} href={itemsHref ? itemsHref : href} />
             ))}
           </div>
         </div>
