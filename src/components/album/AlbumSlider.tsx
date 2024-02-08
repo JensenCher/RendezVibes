@@ -164,7 +164,10 @@ const AlbumSlider = (props: AlbumSliderProps) => {
                           <div key={song._id} className="flex w-full">
                             {/* track name */}
                             <div className="flex flex-1 items-center gap-x-2 capitalize font-semibold xl:font-extrabold">
-                              <div className="text-primary">0{song.order}.</div>
+                              <div className="text-primary">
+                                {song.order < 10 ? "0" : null}
+                                {song.order}.
+                              </div>
                               <div className="text-sm xl:text-base">{song.name}</div>
                             </div>
                             {/* player */}

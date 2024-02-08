@@ -21,14 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("relative h-full dark font-sans antialiased vsc-initialized ", inter.className)}>
-        {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange> */}
         <main className="relative flex flex-col min-h-screen bg-background text-muted-foreground">
           <Header />
           <HeaderMobile />
           <div className="flex-grow flex-1">{children}</div>
           <Footer />
         </main>
-        {/* </ThemeProvider> */}
       </body>
     </html>
   );

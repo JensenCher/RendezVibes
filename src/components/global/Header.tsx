@@ -100,7 +100,7 @@ export function NavigationMenuDemo() {
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/genres/J-Pop" title="J Pop">
+              <ListItem href="/genres/J-Pop" title="J-Pop">
                 Japan's eclectic music scene, blending diverse genres with a unique cultural flair, creating an enchanting sonic landscape.
               </ListItem>
               <ListItem href="/genres/K-Pop" title="K-Pop">
