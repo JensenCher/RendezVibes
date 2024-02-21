@@ -15,6 +15,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import Image from "next/image";
 
 const Header = () => {
   const scrolled = useScroll(5);
@@ -30,8 +31,10 @@ const Header = () => {
       <MaxWidthWrapper>
         <div className="flex h-[47px] items-center justify-between px-4">
           <div className="flex items-center space-x-4">
-            <Link href="/" className="flex flex-row space-x-3 items-center justify-center">
-              <span className="font-bold text-3xl flex hover:text-white duration-300">Rv</span>
+            <Link href="/" className="flex flex-row space-x-3 items-center justify-center group" title="RendezVibes">
+              <span className="font-bold text-3xl flex hover:text-white duration-300">
+                <Image src={"/logo/RendezVibeslogo.png"} alt="logo" height={30} width={30} className="group-hover:brightness-150 group-hover:rotate-[10deg] filter duration-700" />
+              </span>
             </Link>
             <NavigationMenuDemo />
           </div>

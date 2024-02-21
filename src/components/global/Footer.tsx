@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const pathsToMinimize = ["/verify-email", "/sign-up", "/sign-in"];
@@ -14,7 +15,15 @@ export default function Footer() {
           {pathname && pathsToMinimize.includes(pathname) ? null : (
             <div className="pb-8 pt-16">
               <div className="flex justify-center">
-                <div className="h-12 w-auto aspect-square rounded-full text-3xl font-bold hover:text-white duration-300 cursor-default">Rv</div>
+                <div className="h-12 w-auto aspect-square rounded-full text-3xl font-bold hover:text-white duration-300 cursor-default group">
+                  <Image
+                    src={"/logo/RendezVibeslogo.png"}
+                    alt="logo"
+                    height={30}
+                    width={30}
+                    className="group-hover:brightness-150 group-hover:rotate-[10deg] filter duration-700"
+                  />
+                </div>
               </div>
             </div>
           )}
@@ -38,13 +47,13 @@ export default function Footer() {
           </div>
           <div className="mt-4 flex items-center justify-center md:mt-0">
             <div className="flex space-x-8">
-              <Link href="#" className="text-sm text-muted-foreground hover:text-gray-600">
+              <Link href="#" className="text-sm text-muted-foreground hover:text-gray-600 duration-300">
                 Terms
               </Link>
-              <Link href="#" className="text-sm text-muted-foreground hover:text-gray-600">
+              <Link href="#" className="text-sm text-muted-foreground hover:text-gray-600 duration-300">
                 Privacy Policy
               </Link>
-              <Link href="#" className="text-sm text-muted-foreground hover:text-gray-600">
+              <Link href="#" className="text-sm text-muted-foreground hover:text-gray-600 duration-300">
                 Cookie Policy
               </Link>
             </div>
